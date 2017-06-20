@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<!--Shimmi Test Log4J.xml for RaaS -->
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+        
+	<appender name="fileAppender" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value=".\\logs\\render.log"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d [%t] %-5p %c - %m%n"/>    	
+		</layout>		
+	</appender>	
+
+	<appender name="stdoutAppender" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d [%t] %-5p %c - %m%n"/>    	
+		</layout>		
+	</appender>	
+
+	<category name="com.sundaysky">
+		<priority value="warn" />
+	</category>
+	
+	<category name="org.apache">
+		<priority value="warn" />
+	</category>
+	
+	<category name="org.apache.jcs">
+		<priority value="error" />
+	</category>
+	
+	<category name="httpclient.wire.content">
+		<priority value="error"/>
+	</category>
+	
+	<root>
+		<priority value ="warn" />
+		<appender-ref ref="stdoutAppender"/>
+	</root>
+
+</log4j:configuration> 
